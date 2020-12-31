@@ -22,6 +22,7 @@ public class ManagerItens : MonoBehaviour
 
     public OrbsDataPlayer OrbsDataNow;
     public DataWeaponsPlayer WeaponDataNow;
+    public DataPuzzlesPlayer PuzzlenDataNow;
 
 
     private void Awake()

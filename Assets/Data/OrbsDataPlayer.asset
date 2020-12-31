@@ -13,27 +13,30 @@ MonoBehaviour:
   m_Name: OrbsDataPlayer
   m_EditorClassIdentifier: Assembly-CSharp::OrbsDataPlayer
   DataNow:
-  - OrbsName: RedOrb
+  - OrbsName: ActiveDoor
     Unique: 0
     PlayerHas: 1
-  - OrbsName: GreenOrb
+  - OrbsName: DesactiveDoor
     Unique: 1
     PlayerHas: 0
-  - OrbsName: BlueOrb
+  - OrbsName: RedOrb
     Unique: 2
-    PlayerHas: 0
-  - OrbsName: PurpleOrb
+    PlayerHas: 1
+  - OrbsName: GreenOrb
     Unique: 3
     PlayerHas: 0
-  - OrbsName: OrangeOrb
+  - OrbsName: BlueOrb
     Unique: 4
     PlayerHas: 0
-  - OrbsName: YellowOrb
+  - OrbsName: PurpleOrb
     Unique: 5
     PlayerHas: 0
-  - OrbsName: PinkOrb
+  - OrbsName: OrangeOrb
     Unique: 6
     PlayerHas: 0
-  - OrbsName: WhiteOrb
+  - OrbsName: YellowOrb
     Unique: 7
-    PlayerHas: 1
+    PlayerHas: 0
+  - OrbsName: PinkOrb
+    Unique: 8
+    PlayerHas: 0

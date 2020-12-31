@@ -63,13 +63,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Data\DataOrbs.cs" />
+    <Compile Include="Assets\Scripts\Data\DataPuzzles.cs" />
     <Compile Include="Assets\Scripts\Data\DataWeapons.cs" />
     <Compile Include="Assets\Scripts\Data\FactoryScriptable.cs" />
     <Compile Include="Assets\Scripts\Data\WindowsScriptable.cs" />
     <Compile Include="Assets\Scripts\Enemys\BaseEnemys.cs" />
     <Compile Include="Assets\Scripts\Enemys\EnemyTest.cs" />
     <Compile Include="Assets\Scripts\Level\DoorBehavior.cs" />
+    <Compile Include="Assets\Scripts\Level\Handle.cs" />
     <Compile Include="Assets\Scripts\Level\Interactive\Doors.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelsPuzzles\0\Puzzle_01.cs" />
+    <Compile Include="Assets\Scripts\Level\LevelsPuzzles\BasePuzzle.cs" />
     <Compile Include="Assets\Scripts\Level\OrbsLiberation.cs" />
     <Compile Include="Assets\Scripts\Manager\ManagerItens.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />

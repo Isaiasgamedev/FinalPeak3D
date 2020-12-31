@@ -6221,7 +6221,7 @@ GameObject:
   - component: {fileID: 5817402139601439530}
   - component: {fileID: 4928280436505100326}
   m_Layer: 0
-  m_Name: RedOrbDoorAdvise (1)
+  m_Name: RedOrbDoorAdvise
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11468,6 +11468,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c1b2ae914631814d98c1c3793999e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DoorMats:
+  - {fileID: 2100000, guid: 6e5599f369cd5c14e9a5671b56f0323f, type: 2}
+  - {fileID: 2100000, guid: 40a441c2091177e43a98abd227ff71f0, type: 2}
+  - {fileID: 2100000, guid: f697f4cf0342e754db0d6dfdd1f74613, type: 2}
+  - {fileID: 2100000, guid: a4968e32bb81b8242b32de18837b3bdd, type: 2}
+  - {fileID: 2100000, guid: a4968e32bb81b8242b32de18837b3bdd, type: 2}
+  - {fileID: 2100000, guid: a4968e32bb81b8242b32de18837b3bdd, type: 2}
+  - {fileID: 2100000, guid: a4968e32bb81b8242b32de18837b3bdd, type: 2}
+  - {fileID: 2100000, guid: a4968e32bb81b8242b32de18837b3bdd, type: 2}
+  - {fileID: 2100000, guid: a4968e32bb81b8242b32de18837b3bdd, type: 2}
+  - {fileID: 2100000, guid: 6e5599f369cd5c14e9a5671b56f0323f, type: 2}
+  MeshControl:
+  - {fileID: 7397142630053092866}
+  - {fileID: 8446468612138398515}
   AnimatorControl:
   - {fileID: 534315425778515255}
   - {fileID: 1389229112451909586}

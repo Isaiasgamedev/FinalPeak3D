@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
+    public Material[] DoorMats;
+    public Renderer[] MeshControl;
     public Animator[] AnimatorControl;
     public bool StayOpen;
     public bool OutOfTrigger;
 
-    public enum Orbs {RedOrb, GreenOrb, BlueOrb, PurpleOrb, OrangeOrb, YellowOrb, PinkOrb, WhiteOrb}
+    public enum Orbs {ActiveDoor, DesactiveDoor, RedOrb, GreenOrb, BlueOrb, PurpleOrb, OrangeOrb, YellowOrb, PinkOrb}
     public Orbs OrbsControl;
 
+
+    private void Update()
+    {
+        for (int i = 0; i < MeshControl.Length; i++)
+        {
+            MeshControl[i].material = DoorMats[(int)OrbsControl];
+        }
+    }
 
 
     bool AnimatorIsPlaying()
