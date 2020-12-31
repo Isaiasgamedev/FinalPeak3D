@@ -62,20 +62,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            if(StatesOfAttackNow == StatesOfAttack.Inwait)
+            if(ManagerItens.Instance.WeaponDataNow.DataNow[0].Level > 0)
             {
-                ComboControl = 0;
-                GameObject WeaponNow = Instantiate(MelleAttack, WeaponInUseNow.transform.position, Quaternion.identity, WeaponInUseNow.transform);
-                WeaponNow.transform.localEulerAngles = transform.forward;
-                WeaponNow.GetComponentInChildren<Sword>().Pm = this;
-                WeaponNow.GetComponentInChildren<Sword>().Damage += CalculateAttack(0);
-                StatesOfAttackNow = StatesOfAttack.InAttack;
+                if (StatesOfAttackNow == StatesOfAttack.Inwait)
+                {
+                    ComboControl = 0;
+                    GameObject WeaponNow = Instantiate(MelleAttack, WeaponInUseNow.transform.position, Quaternion.identity, WeaponInUseNow.transform);
+                    WeaponNow.transform.localEulerAngles = transform.forward;
+                    WeaponNow.GetComponentInChildren<Sword>().Pm = this;
+                    WeaponNow.GetComponentInChildren<Sword>().Damage += CalculateAttack(0);
+                    StatesOfAttackNow = StatesOfAttack.InAttack;
 
+                }
+                else
+                {
+                    ComboControl++;
+                }
             }
-            else
-            {
-                ComboControl++;
-            }
+            
             
         }
     }
