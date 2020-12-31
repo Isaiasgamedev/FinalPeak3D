@@ -21,7 +21,7 @@ MonoBehaviour:
     PlayerHas: 0
   - OrbsName: RedOrb
     Unique: 2
-    PlayerHas: 1
+    PlayerHas: 0
   - OrbsName: GreenOrb
     Unique: 3
     PlayerHas: 0

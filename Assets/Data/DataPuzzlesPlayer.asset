@@ -17,9 +17,9 @@ MonoBehaviour:
     PuzzleLevel: 0
     PuzzleOrg: 1
     PuzzleDone: 0
-  - PuzzleName: 
+  - PuzzleName: 02 - Tutorial
     PuzzleLevel: 0
-    PuzzleOrg: 0
+    PuzzleOrg: 2
     PuzzleDone: 0
   - PuzzleName: 
     PuzzleLevel: 0

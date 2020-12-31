@@ -52,7 +52,7 @@ public class ScriptableObjectWindow : EditorWindow
         {
             var asset = ScriptableObject.CreateInstance(types[selectedIndex]);
             ProjectWindowUtil.StartNameEditingIfProjectWindowExists(
-                asset.GetInstanceID(),
+            asset.GetInstanceID(),
                 ScriptableObject.CreateInstance<EndNameEdit>(),
                 string.Format("{0}.asset", names[selectedIndex]),
                 AssetPreview.GetMiniThumbnail(asset),

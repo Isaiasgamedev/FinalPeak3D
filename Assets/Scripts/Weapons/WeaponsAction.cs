@@ -8,6 +8,7 @@ public class WeaponsAction : MonoBehaviour
     public enum TypesWeapon { Melle, Range, Magic, Explosive }
     public TypesWeapon TypesWeaponNow;
     public Animator AnimControl;
+    public Puzzle_02 PuzzleResolve;
 
 
     private void OnTriggerEnter(Collider other)
@@ -16,6 +17,8 @@ public class WeaponsAction : MonoBehaviour
         if (x != null)
         {
             ManagerItens.Instance.WeaponDataNow.DataNow[(int)TypesWeaponNow].Level++;
+            PuzzleResolve = GetComponentInParent<Puzzle_02>();
+            PuzzleResolve.DoActionResolvePuzzle();
             AnimControl.Play("Destroy");
         }
     }
