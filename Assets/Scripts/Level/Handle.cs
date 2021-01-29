@@ -6,33 +6,87 @@ public class Handle : MonoBehaviour
 {
 
     public Animator AnimControl;
-    public PlayerMovement x = null;
+    public Player x = null;
     public int ControlHandle;
     public Puzzle_01 Puzzle01;
+    public Doors[] DoorOpen;
+    public enum HandleType { Door, Plataform}
+    public HandleType HandleTypeNow;
+    public PlatMovelHorizontal Plat;  
+    public bool HandleActive;
+
 
 
     private void OnTriggerStay(Collider other)   
     {
-        x = other.GetComponent<PlayerMovement>();
-        if (x != null)
+        x = other.GetComponent<Player>();
+        if(HandleTypeNow == HandleType.Door)
         {
-            if (Input.GetButtonDown("Action"))
+            if (x != null)
             {
-                AnimControl.Play("Active");
-                Puzzle01 = GetComponentInParent<Puzzle_01>();
-                Puzzle01.HandleActive = ControlHandle;
-                Puzzle01.DoActionResolvePuzzle();
-                Debug.Log("TESTE");
+                if (Input.GetButtonDown("Action"))
+                {
+                    AnimControl.Play("Active");
+                    for (int i = 0; i < DoorOpen.Length; i++)
+                    {
+                        DoorOpen[i].OrbsControl = Doors.Orbs.ActiveDoor;
+                    }
+                    //Puzzle01 = GetComponentInParent<Puzzle_01>();
+                    //Puzzle01.HandleActive = ControlHandle;
+                    //Puzzle01.DoActionResolvePuzzle();
+                    //Debug.Log("TESTE");
+                }
+
             }
-           
         }
+        else if(HandleTypeNow == HandleType.Plataform)
+        {
+            if(Plat.StatePlatNow == PlatMovelHorizontal.StatePlat.ToWait)
+            {
+                if (Input.GetButtonDown("Action"))
+                {
+                    if (!HandleActive)
+                    {
+                        AnimControl.speed = 1;
+                        AnimControl.Play("Active");
+                        HandleActive = true;
+                       
+                        if (Plat.PlatTypeNow == PlatMovelHorizontal.PlatType.GoAndWait)
+                        {
+                            if (Plat.PlayerWas)
+                            {
+                                Plat.StatePlatNow = PlatMovelHorizontal.StatePlat.ToBack;
+
+                            }
+                            else
+                            {
+                                Plat.StatePlatNow = PlatMovelHorizontal.StatePlat.ToGO;
+                            }
+                        }
+
+                        else
+                        {
+                            Plat.StatePlatNow = PlatMovelHorizontal.StatePlat.ToGO;
+                        }
+                        
+                        
+
+                        //Puzzle01 = GetComponentInParent<Puzzle_01>();
+                        //Puzzle01.HandleActive = ControlHandle;
+                        //Puzzle01.DoActionResolvePuzzle();
+                        //Debug.Log("TESTE");
+                    }
+
+                }
+
+                
+            }
+        }
+        
     }
 
-    private void OnTriggerExit(Collider other)
+    public void DesactiveHandle()
     {
-        if(x != null)
-        {
-            x = null;
-        }
+        AnimControl.Play("Desactive");
     }
 }

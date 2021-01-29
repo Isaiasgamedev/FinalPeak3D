@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyTest : BaseEnemys
 {
+    public GameObject DamageTextPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +22,20 @@ public class EnemyTest : BaseEnemys
         if(Hp > 0)
         {
             Hp -= Dano;
-            if(Hp <= 0)
+            ShowDamage(Dano);
+            if (Hp <= 0)
             {
                 DoDestroy();                
             }
         }        
+    }
+
+    public void ShowDamage(float FinalDamage)
+    {
+        DamageTextPrefab.GetComponent<TextMesh>().text = FinalDamage.ToString();
+        DamageTextPrefab.SetActive(true);
+        DamageTextPrefab.GetComponent<Animator>().Play("DamageText"); 
+
     }
 
     public override void DoDestroy()

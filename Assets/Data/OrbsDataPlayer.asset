@@ -9,34 +9,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 4bf3a3bcbf6df2f469f905621ca3cfde, type: 3}
   m_Name: OrbsDataPlayer
-  m_EditorClassIdentifier: Assembly-CSharp::OrbsDataPlayer
+  m_EditorClassIdentifier: 
   DataNow:
   - OrbsName: ActiveDoor
     Unique: 0
     PlayerHas: 1
   - OrbsName: DesactiveDoor
-    Unique: 1
+    Unique: 0
     PlayerHas: 0
   - OrbsName: RedOrb
-    Unique: 2
-    PlayerHas: 0
+    Unique: 0
+    PlayerHas: 1
   - OrbsName: GreenOrb
-    Unique: 3
+    Unique: 0
     PlayerHas: 0
   - OrbsName: BlueOrb
-    Unique: 4
+    Unique: 0
     PlayerHas: 0
   - OrbsName: PurpleOrb
-    Unique: 5
+    Unique: 0
     PlayerHas: 0
   - OrbsName: OrangeOrb
-    Unique: 6
+    Unique: 0
     PlayerHas: 0
   - OrbsName: YellowOrb
-    Unique: 7
+    Unique: 0
     PlayerHas: 0
   - OrbsName: PinkOrb
-    Unique: 8
+    Unique: 0
     PlayerHas: 0

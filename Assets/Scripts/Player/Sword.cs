@@ -13,7 +13,7 @@ public class Sword : MonoBehaviour
     public Animator AnimsControl;
     public enum Attack { First, Second, Third, Final}
     public Attack AttackNow;
-    public PlayerMovement Pm;
+    public Player Pm;
     public int DanoOn = 0;
     public bool InDano;
     public int Damage;
@@ -56,7 +56,7 @@ public class Sword : MonoBehaviour
             }
             else
             {
-                Pm.StatesOfAttackNow = PlayerMovement.StatesOfAttack.Inwait;
+                Pm.StatesOfAttackNow = Player.StatesOfAttack.Inwait;
                 Destroy(HitNow);
                 Destroy(Parent);
             }
@@ -78,7 +78,7 @@ public class Sword : MonoBehaviour
             }
             else
             {
-                Pm.StatesOfAttackNow = PlayerMovement.StatesOfAttack.Inwait;
+                Pm.StatesOfAttackNow = Player.StatesOfAttack.Inwait;
                 Destroy(HitNow);
                 Destroy(Parent);
             }
@@ -87,7 +87,7 @@ public class Sword : MonoBehaviour
 
         else if (AttackNow == Attack.Third)
         {
-            Pm.StatesOfAttackNow = PlayerMovement.StatesOfAttack.Inwait;
+            Pm.StatesOfAttackNow = Player.StatesOfAttack.Inwait;
             Destroy(HitNow);
             Destroy(Parent);
         }
@@ -97,43 +97,74 @@ public class Sword : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         Target = other.GetComponent<BaseEnemys>();
-        
-        if (AttackNow == Attack.First)
+        if (Target != null)
         {
-            if (DanoOn == 0 && !InDano)
+            if (AttackNow == Attack.First)
             {
-                Target.DoDamage(Damage);
-                Debug.Log("DM = " + Damage);
+                if (DanoOn == 0 && !InDano)
+                {
+                    Target.DoDamage(Damage);
+                    Debug.Log("DM = " + Damage);
 
-                //if (Target != null)
-                //{
-                //    Target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 1, ForceMode.Impulse);
-                //}
+                    //if (Target != null)
+                    //{
+                    //    Target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 1, ForceMode.Impulse);
+                    //}
 
-                HitNow = Instantiate(HitParticule, ReferenceHit.transform.position, Quaternion.identity);
-                AudioEffect.clip = DoHit[1];
-                AudioEffect.Play();
+                    HitNow = Instantiate(HitParticule, ReferenceHit.transform.position, Quaternion.identity);
+                    AudioEffect.clip = DoHit[1];
+                    AudioEffect.Play();
 
 
-                InDano = true;
+                    InDano = true;
 
+                }
             }
-        }
 
-        if (AttackNow == Attack.Second)
-        {
-            if (DanoOn == 1 && !InDano)
+            if (AttackNow == Attack.Second)
             {
-                Target.DoDamage(Damage + 1);
-                Debug.Log("DM2 = " + (Damage + 1));
+                if (DanoOn == 1 && !InDano)
+                {
+                    Target.DoDamage(Damage + 1);
+                    Debug.Log("DM2 = " + (Damage + 1));
+
+                    //if (Target != null)
+                    //{
+                    //    Target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 2, ForceMode.Impulse);
+                    //}
+
+
+                    if (HitNow != null)
+                    {
+                        HitNow.transform.position = ReferenceHit.transform.position;
+                        HitNow.GetComponent<ParticleSystem>().Play();
+                        AudioEffect.clip = DoHit[1];
+                        AudioEffect.Play();
+                    }
+                    else
+                    {
+                        HitNow = Instantiate(HitParticule, ReferenceHit.transform.position, Quaternion.identity);
+                        AudioEffect.clip = DoHit[1];
+                        AudioEffect.Play();
+                    }
+
+
+                    InDano = true;
+                }
+            }
+
+            if (DanoOn == 2 && !InDano)
+            {
+
+                other.GetComponent<BaseEnemys>().DoDamage(Damage + 2);
+                Debug.Log("DM3 = " + (Damage + 2));
 
                 //if (Target != null)
                 //{
-                //    Target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 2, ForceMode.Impulse);
+                //    Target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 20, ForceMode.Impulse);
                 //}
 
-
-                if(HitNow != null)
+                if (HitNow != null)
                 {
                     HitNow.transform.position = ReferenceHit.transform.position;
                     HitNow.GetComponent<ParticleSystem>().Play();
@@ -147,39 +178,12 @@ public class Sword : MonoBehaviour
                     AudioEffect.Play();
                 }
 
-                
                 InDano = true;
+
             }
         }
-
-        if (DanoOn == 2 && !InDano)
-        {
-           
-            other.GetComponent<BaseEnemys>().DoDamage(Damage + 2);
-            Debug.Log("DM3 = " + (Damage + 2));
-
-            //if (Target != null)
-            //{
-            //    Target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 20, ForceMode.Impulse);
-            //}
-
-            if (HitNow != null)
-            {
-                HitNow.transform.position = ReferenceHit.transform.position;
-                HitNow.GetComponent<ParticleSystem>().Play();
-                AudioEffect.clip = DoHit[1];
-                AudioEffect.Play();
-            }
-            else
-            {
-                HitNow = Instantiate(HitParticule, ReferenceHit.transform.position, Quaternion.identity);
-                AudioEffect.clip = DoHit[1];
-                AudioEffect.Play();
-            }
-
-            InDano = true;
-            
-        }                                
+        
+                             
                 
     }
 }

@@ -8,6 +8,10 @@ public class BaseEnemys : MonoBehaviour
 
     public TypeEnemy TypeEnemyNow;
     public enum TypeEnemy {Patrol, Follow, Trap}
+    public bool DamagePlayerNow;
+	public Player Player;
+	public Transform Target;
+	public GameObject Bullet;
 
     [Header("ENNEMY STATUS")]
 
@@ -20,8 +24,9 @@ public class BaseEnemys : MonoBehaviour
 
     public virtual void DoAction()
     {
+		//Bullet = Instantiate()
 
-    }
+	}
 
     public virtual void DoAttack()
     {
@@ -36,5 +41,32 @@ public class BaseEnemys : MonoBehaviour
     public virtual void DoDestroy()
     {
 
+    }
+
+    public virtual void OnTriggerStay(Collider other)
+    {
+        var x = other.GetComponent<Player>();
+        if (x)
+        {
+            if (!DamagePlayerNow)
+            {
+                StartCoroutine(x.KnockBack(-3));
+                DamagePlayerNow = true;
+            }
+                       
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        var x = other.GetComponent<Player>();
+        if (x)
+        {
+            if (DamagePlayerNow)
+            {
+                DamagePlayerNow = false;
+            }
+
+        }
     }
 }

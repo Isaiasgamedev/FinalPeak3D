@@ -1,0 +1,169 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Player: MonoBehaviour
+{
+    [Header("INITIAL CONTROLLERS PLAYER")]
+
+    CharacterController controller;
+    public Vector3 move;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    private float gravityValue = -9.81f;
+    public enum UnitsIdentification {Player, Enemy, Boss}
+    public UnitsIdentification UnitsIdentificationNow;
+    public float TimerKnockBack;
+    public Animator AnimControl;
+    public GameObject DamageTextPrefab;
+
+    [Header("STATUS OF PLAYER")]
+
+    public float RotPlayer;
+    public float Hp;
+    public float playerSpeed = 2.0f;
+    public float jumpHeight = 1.0f;
+    public int Attack;
+    public int Defense;
+    public int Agility;
+    public int Dextry;
+
+
+    [Header("STATES OF ATTACK")]
+    public StatesOfAttack StatesOfAttackNow;
+    public enum StatesOfAttack { Inwait, InAttack, InKnockBack, Indamage}    
+    public int ComboControl;
+    public GameObject WeaponInUseNow;
+    public GameObject MelleAttack;
+    public bool Indialogue;
+
+    private void Start()
+    {
+        controller = GetComponent<CharacterController>();    
+    }
+
+    void Update()
+    {
+        if (StatesOfAttackNow == StatesOfAttack.InKnockBack) return;
+        if (Indialogue) return;
+
+
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
+        {
+            playerVelocity.y = 0f;
+        }
+
+        move = new Vector3(0, 0, Input.GetAxis("Vertical"));
+      
+
+        if(move.z > 0)
+        {
+            controller.Move(transform.forward * Time.deltaTime * playerSpeed);
+        }
+        else if(move.z < 0)
+        {
+            controller.Move(transform.forward * Time.deltaTime * -playerSpeed);
+        }
+
+
+
+        //if (move != Vector3.zero)
+        //{
+        //transform.forward = Vector3.Lerp(transform.forward, move, Time.deltaTime * 8);
+        //}
+
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + Input.GetAxis("Horizontal") * Time.deltaTime * 64, 0);
+        }
+        else if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + Input.GetAxis("Horizontal") * Time.deltaTime * 64, 0);
+        }
+
+        // Changes the height position of the player..
+        if (Input.GetButtonDown("Jump") && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
+        }
+
+        playerVelocity.y += gravityValue * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            if(ManagerItens.Instance.WeaponDataNow.DataNow[0].Level > 0)
+            {
+                if (StatesOfAttackNow == StatesOfAttack.Inwait)
+                {
+                    ComboControl = 0;
+                    GameObject WeaponNow = Instantiate(MelleAttack, WeaponInUseNow.transform.position, Quaternion.identity, WeaponInUseNow.transform);
+                    WeaponNow.transform.localEulerAngles = transform.forward;
+                    WeaponNow.GetComponentInChildren<Sword>().Pm = this;
+                    WeaponNow.GetComponentInChildren<Sword>().Damage += CalculateAttack(0);
+                    StatesOfAttackNow = StatesOfAttack.InAttack;
+
+                }
+                else
+                {
+                    ComboControl++;
+                }
+            }
+            
+            
+        }
+    }
+
+    public void Dodamage(int Dano)
+    {
+        if (StatesOfAttackNow == StatesOfAttack.Indamage) return;
+        AnimControl.Play("InDamage");        
+        StatesOfAttackNow = StatesOfAttack.Indamage;
+        float FinalDamage = (Defense / 2) - Dano;
+        Hp -= FinalDamage;
+        ShowDamage(FinalDamage);
+    }
+
+    public void ShowDamage(float FinalDamage)
+    {
+        DamageTextPrefab.GetComponent<TextMesh>().text = FinalDamage.ToString();
+        DamageTextPrefab.SetActive(true);
+        DamageTextPrefab.GetComponent<Animator>().Play("DamageText");
+        
+    }
+
+    public void ReturnToNormal()
+    {
+        StatesOfAttackNow = StatesOfAttack.Inwait;
+        //AnimControl.StopPlayback();
+    }
+
+    
+
+    public IEnumerator KnockBack(int Dano)
+    {
+              
+
+        while (TimerKnockBack < 0.15f)
+        {
+            StatesOfAttackNow = StatesOfAttack.InKnockBack;
+            
+            TimerKnockBack += Time.deltaTime;
+            transform.Translate(Vector3.back * Time.deltaTime * 12);
+            yield return null;
+        }
+        TimerKnockBack = 0;
+        controller.Move(-transform.forward);
+        StatesOfAttackNow = StatesOfAttack.Inwait;
+        Dodamage(Dano);
+    }
+
+
+    public int CalculateAttack(int AttackNow)
+    {
+        AttackNow += Attack + (Dextry / 2);
+        return AttackNow;
+    }
+
+}
