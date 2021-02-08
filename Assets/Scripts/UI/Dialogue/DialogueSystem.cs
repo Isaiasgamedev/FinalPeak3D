@@ -19,11 +19,11 @@ public class DialogueSystem : MonoBehaviour
 
     public void Start()
     {
-        Sentences = DataDialogue.DataPlayer[0].Sentences;
-        StartCoroutine(Type());       
-    }
+		Sentences = DataDialogue.DataPlayer[0].Sentences;
+		StartCoroutine(Type());
+	}
 
-    public void Update()
+	public void Update()
     {
         if(TextDisplay.text == Sentences[Index])
         {
@@ -42,9 +42,10 @@ public class DialogueSystem : MonoBehaviour
         {
             TextDisplay.text += letter;
             yield return Seconds;
-        }
-        
-    }
+		}
+
+
+	}
 
     public void NextSentence()
     {

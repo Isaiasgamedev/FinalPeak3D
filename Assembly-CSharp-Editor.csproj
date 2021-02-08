@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\ScriptableObjectFactory.cs" />
     <Compile Include="Assets\Editor\ScriptableObjectWindow.cs" />
+    <Compile Include="Assets\FlexibleCelShader\Editor\CelCustomEditor.cs" />
+    <Compile Include="Assets\FlexibleCelShader\Editor\PresetDataConainer.cs" />
+    <Compile Include="Assets\FlexibleCelShader\Editor\PresetHelper.cs" />
     <Compile Include="Assets\Scripts\Editor\ReverseAnimation\ReverseAnimation.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unitys/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

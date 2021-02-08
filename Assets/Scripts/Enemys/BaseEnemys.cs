@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BaseEnemys : MonoBehaviour
 {
-    [Header("TYPE OF ENNEMY")]
+	[Header("TYPE OF ENNEMY")]
 
-    public TypeEnemy TypeEnemyNow;
-    public enum TypeEnemy {Patrol, Follow, Trap}
-    public bool DamagePlayerNow;
-	public Player Player;
+	public TypeEnemy TypeEnemyNow;
+	public enum TypeEnemy { Patrol, Follow, Trap, Orbit, Slime }
+	public bool DamagePlayerNow;
+	public Player Player = null;
 	public Transform Target;
 	public GameObject Bullet;
+	public Doors[] DoorsActive;
 
     [Header("ENNEMY STATUS")]
 

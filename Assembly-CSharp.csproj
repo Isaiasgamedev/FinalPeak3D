@@ -62,12 +62,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Camera\SimpleCameraShakeInCinemachine.cs" />
+    <Compile Include="Assets\CinemachineShake\Scripts\CinemachineShake.cs" />
     <Compile Include="Assets\First.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\CameraShakeSimpleScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\ProjectileMoveScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\RotateToMouseScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\SpawnProjectilesScript.cs" />
+    <Compile Include="Assets\Scripts\Camera\ShakeCam.cs" />
     <Compile Include="Assets\Scripts\Damage\DamageText.cs" />
     <Compile Include="Assets\Scripts\Damage\DesactiveDamage.cs" />
     <Compile Include="Assets\Scripts\Data\DataDialoguesSystem.cs" />
@@ -75,7 +78,12 @@
     <Compile Include="Assets\Scripts\Data\DataWeaponsPlayer.cs" />
     <Compile Include="Assets\Scripts\Data\OrbsDataPlayer.cs" />
     <Compile Include="Assets\Scripts\Enemys\BaseEnemys.cs" />
-    <Compile Include="Assets\Scripts\Enemys\EnemyTest.cs" />
+    <Compile Include="Assets\Scripts\Enemys\Boss\GollemFlorest.cs" />
+    <Compile Include="Assets\Scripts\Enemys\CentipodeOrbit.cs" />
+    <Compile Include="Assets\Scripts\Enemys\DodamageEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemys\FlyEye.cs" />
+    <Compile Include="Assets\Scripts\Enemys\SlimeFollow.cs" />
+    <Compile Include="Assets\Scripts\Enemys\SlimeSense.cs" />
     <Compile Include="Assets\Scripts\Level\Handle.cs" />
     <Compile Include="Assets\Scripts\Level\Interactive\Doors.cs" />
     <Compile Include="Assets\Scripts\Level\LevelsPuzzles\0\Puzzle_01.cs" />
@@ -86,6 +94,7 @@
     <Compile Include="Assets\Scripts\Level\Platforms\PointsChangeDirection.cs" />
     <Compile Include="Assets\Scripts\Manager\ManagerItens.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
+    <Compile Include="Assets\Scripts\Player\ReturnPosition.cs" />
     <Compile Include="Assets\Scripts\Player\Sword.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\DialogueActive.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\DialogueSystem.cs" />
@@ -111,7 +120,10 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\FlexibleCelShader\Shaders\CelNoOutline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\FlexibleCelShader\Shaders\CelSilhouette.shader" />
+    <None Include="Assets\FlexibleCelShader\Shaders\CelOutline.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unitys/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

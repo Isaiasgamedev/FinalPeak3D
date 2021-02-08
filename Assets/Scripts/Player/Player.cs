@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player: MonoBehaviour
 {
@@ -10,16 +11,15 @@ public class Player: MonoBehaviour
     public Vector3 move;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    private float gravityValue = -9.81f;
-    public enum UnitsIdentification {Player, Enemy, Boss}
-    public UnitsIdentification UnitsIdentificationNow;
+    private float gravityValue = -9.81f; 
     public float TimerKnockBack;
     public Animator AnimControl;
     public GameObject DamageTextPrefab;
+	public TextMeshProUGUI HpValor;
 
     [Header("STATUS OF PLAYER")]
 
-    public float RotPlayer;
+    //public float RotPlayer;
     public float Hp;
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
@@ -44,6 +44,9 @@ public class Player: MonoBehaviour
 
     void Update()
     {
+
+		//HpValor.text = Hp.ToString();
+
         if (StatesOfAttackNow == StatesOfAttack.InKnockBack) return;
         if (Indialogue) return;
 
@@ -85,8 +88,8 @@ public class Player: MonoBehaviour
         // Changes the height position of the player..
         if (Input.GetButtonDown("Jump") && groundedPlayer)
         {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-        }
+            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);			
+		}
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
@@ -118,7 +121,8 @@ public class Player: MonoBehaviour
     public void Dodamage(int Dano)
     {
         if (StatesOfAttackNow == StatesOfAttack.Indamage) return;
-        AnimControl.Play("InDamage");        
+		CinemachineShake.Instance.ShakeCamera(4f, .1f);
+		AnimControl.Play("InDamage");        
         StatesOfAttackNow = StatesOfAttack.Indamage;
         float FinalDamage = (Defense / 2) - Dano;
         Hp -= FinalDamage;
@@ -142,15 +146,14 @@ public class Player: MonoBehaviour
     
 
     public IEnumerator KnockBack(int Dano)
-    {
-              
+    {              
 
-        while (TimerKnockBack < 0.15f)
+        while (TimerKnockBack < 0.05f)
         {
             StatesOfAttackNow = StatesOfAttack.InKnockBack;
             
             TimerKnockBack += Time.deltaTime;
-            transform.Translate(Vector3.back * Time.deltaTime * 12);
+            transform.Translate(Vector3.back * Time.deltaTime * 4);
             yield return null;
         }
         TimerKnockBack = 0;
