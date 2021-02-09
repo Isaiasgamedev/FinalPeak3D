@@ -62,14 +62,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Camera\SimpleCameraShakeInCinemachine.cs" />
     <Compile Include="Assets\CinemachineShake\Scripts\CinemachineShake.cs" />
+    <Compile Include="Assets\DynamicEnemyPlants\Demo\DemoController.cs" />
+    <Compile Include="Assets\DynamicEnemyPlants\Demo\SimpleRotate.cs" />
     <Compile Include="Assets\First.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\CameraShakeSimpleScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\ProjectileMoveScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\RotateToMouseScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\SpawnProjectilesScript.cs" />
+    <Compile Include="Assets\Jammo-Character\Scripts\CharacterSkinController.cs" />
+    <Compile Include="Assets\Jammo-Character\Scripts\MovementInput.cs" />
     <Compile Include="Assets\Scripts\Camera\ShakeCam.cs" />
     <Compile Include="Assets\Scripts\Damage\DamageText.cs" />
     <Compile Include="Assets\Scripts\Damage\DesactiveDamage.cs" />
@@ -117,6 +122,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Shader\Additive_Base.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\DynamicEnemyPlants\readme.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
@@ -718,6 +724,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

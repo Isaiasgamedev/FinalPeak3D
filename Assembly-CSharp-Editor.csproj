@@ -62,12 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\Scripts\Editor\PackageChecker\PackageChecker.cs" />
     <Compile Include="Assets\Editor\ScriptableObjectFactory.cs" />
     <Compile Include="Assets\Editor\ScriptableObjectWindow.cs" />
     <Compile Include="Assets\FlexibleCelShader\Editor\CelCustomEditor.cs" />
     <Compile Include="Assets\FlexibleCelShader\Editor\PresetDataConainer.cs" />
     <Compile Include="Assets\FlexibleCelShader\Editor\PresetHelper.cs" />
     <Compile Include="Assets\Scripts\Editor\ReverseAnimation\ReverseAnimation.cs" />
+    <None Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\Scripts\Editor\PackageChecker\settings\PackageImportList_ShaderGraph.txt" />
+    <None Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\Scripts\Editor\PackageChecker\PackageImportList.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unitys/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -685,6 +689,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
