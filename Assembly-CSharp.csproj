@@ -692,8 +692,14 @@
     <Reference Include="Unity.ProGrids.Editor">
       <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Recorder.Editor">
+      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Recorder">
+      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -724,12 +730,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Recorder.Editor">
-      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Recorder">
-      <HintPath>C:/Users/isaia/Desktop/PROJECT_TO_SEE/FinalPeak3D/Library/ScriptAssemblies/Unity.Recorder.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
