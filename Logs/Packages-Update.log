@@ -61,3 +61,14 @@ Update Mode: mergeDefaultDependencies
 The following packages were added:
   com.unity.ext.nunit@1.0.0
   com.unity.recorder@2.0.3-preview.1
+
+=== Wed Feb 10 21:01:23 2021
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.ads@2.0.8
+  com.unity.analytics@3.2.3
+  com.unity.package-manager-ui@2.0.13
+  com.unity.purchasing@2.0.3

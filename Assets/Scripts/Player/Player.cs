@@ -110,6 +110,7 @@ public class Player: MonoBehaviour
 		// Changes the height position of the player..
 		if (Input.GetButtonDown("Jump") && groundedPlayer)
 		{
+			AnimControl.Play("Jump");
 			playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
 		}
 
