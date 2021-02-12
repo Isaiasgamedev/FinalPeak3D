@@ -6,7 +6,7 @@ public class Doors : MonoBehaviour
 {
     public Material[] DoorMats;
     public Renderer[] MeshControl;
-    public Animator[] AnimatorControl;
+    public Animator AnimatorControl;
     public bool StayOpen;
     public bool OutOfTrigger;
 
@@ -25,24 +25,23 @@ public class Doors : MonoBehaviour
 
     bool AnimatorIsPlaying()
     {
-        return AnimatorControl[0].GetCurrentAnimatorStateInfo(0).length >
-               AnimatorControl[0].GetCurrentAnimatorStateInfo(0).normalizedTime;
+        return AnimatorControl.GetCurrentAnimatorStateInfo(0).length >
+               AnimatorControl.GetCurrentAnimatorStateInfo(0).normalizedTime;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (ManagerItens.Instance.OrbsDataNow.DataNow[(int)OrbsControl].PlayerHas)
         {
-            for (int i = 0; i < AnimatorControl.Length; i++)
-            {
-                AnimatorControl[i].SetBool("Close", false);
-                AnimatorControl[i].Play("Doors");
+        
+                AnimatorControl.SetBool("Close", false);
+                AnimatorControl.Play("doors");
                 if (!AnimatorIsPlaying())
                 {
                     StayOpen = true;
                 }
 
-            }
+          
         }
 
         
@@ -54,11 +53,10 @@ public class Doors : MonoBehaviour
         {
             if (StayOpen)
             {
-                for (int i = 0; i < AnimatorControl.Length; i++)
-                {
-                    AnimatorControl[i].SetBool("Close", true);
+                
+                    AnimatorControl.SetBool("Close", true);
                     //AnimatorControl[i].Play("Reverse");
-                }
+                
             }
             else
             {
@@ -78,11 +76,10 @@ public class Doors : MonoBehaviour
 
         //After we have waited 5 seconds print the time again.
 
-        for (int i = 0; i < AnimatorControl.Length; i++)
-        {
-            AnimatorControl[i].SetBool("Close", true);
+        
+            AnimatorControl.SetBool("Close", true);
             //AnimatorControl[i].Play("Reverse");
-        }
+        
         
     }
 

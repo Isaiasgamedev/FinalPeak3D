@@ -19,18 +19,18 @@ public class DialogueSystem : MonoBehaviour
 
     public void Start()
     {
-		Sentences = DataDialogue.DataPlayer[0].Sentences;
-		StartCoroutine(Type());
+		//Sentences = DataDialogue.DataPlayer[0].Sentences;
+		//StartCoroutine(Type());
 	}
 
 	public void Update()
     {
-        if(TextDisplay.text == Sentences[Index])
-        {
-            Button_Box[0].SetActive(true);
-            Button_Box[0].GetComponent<Button>().Select();
-            textanim.Play("Idle");
-        }
+        //if(TextDisplay.text == Sentences[Index])
+        //{
+        //    Button_Box[0].SetActive(true);
+        //    Button_Box[0].GetComponent<Button>().Select();
+        //    textanim.Play("Idle");
+        //}
     }
 
     public IEnumerator Type()
