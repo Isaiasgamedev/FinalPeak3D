@@ -30,7 +30,7 @@ public class DialogueSystem : MonoBehaviour
 			Button_Box[0].SetActive(true);
 			Button_Box[0].GetComponent<Button>().Select();
 			textanim.Play("Idle");
-			Debug.Log("==");
+			//Debug.Log("==");
 		}
 	}
 
@@ -50,7 +50,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void NextSentence()
     {
-		Debug.Log("Next");
+		//Debug.Log("Next");
         textanim.Play("Change");
         Button_Box[0].SetActive(false);
         if (Index < Sentences.Length -1)
