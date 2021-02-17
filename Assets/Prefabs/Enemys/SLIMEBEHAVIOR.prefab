@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd6019f0d3f7ff4a847a29625e60c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 5052575049747055831}
   PlayerNow: {fileID: 0}
 --- !u!1 &5051746936357011317
 GameObject:
@@ -242,7 +241,7 @@ Transform:
   m_GameObject: {fileID: 5051746936357011317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 5049979964010016428}
   - {fileID: 5051746935837895410}
@@ -531,6 +530,7 @@ GameObject:
   - component: {fileID: 5052575049747055824}
   - component: {fileID: 5052575049747055831}
   - component: {fileID: 5052575049747055826}
+  - component: {fileID: 1404052830}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -597,7 +597,7 @@ MonoBehaviour:
   Target: {fileID: 0}
   Bullet: {fileID: 0}
   DoorsActive: []
-  Hp: 50
+  Hp: 8
   Speed: 0
   Attack: 0
   Defense: 0
@@ -615,6 +615,7 @@ MonoBehaviour:
   ActionTimer: 0
   PrincipalBody: {fileID: 5049979964010016428}
   Sense: {fileID: 5051746935845666724}
+  Todestroy: {fileID: 5051746936357011317}
 --- !u!54 &5052575049747055826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -631,6 +632,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1404052830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5052575049747055830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757b768b4384a0e4b918676270c5b605, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FlyeyeNow: {fileID: 0}
 --- !u!1 &5052620482143879868
 GameObject:
   m_ObjectHideFlags: 0

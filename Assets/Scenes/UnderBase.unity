@@ -5102,6 +5102,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CICLOPEYE
       objectReference: {fileID: 0}
+    - target: {fileID: 6583968139229904792, guid: b10633d6e0cfa06458e0ba304eb628f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6583968139229904799, guid: b10633d6e0cfa06458e0ba304eb628f7,
         type: 3}
       propertyPath: FlyeyeNow
@@ -6242,21 +6247,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051746936357011318, guid: e74731b17bb89a94ea33bf2998f119aa,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051746936357011318, guid: e74731b17bb89a94ea33bf2998f119aa,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5051746936357011318, guid: e74731b17bb89a94ea33bf2998f119aa,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e74731b17bb89a94ea33bf2998f119aa, type: 3}

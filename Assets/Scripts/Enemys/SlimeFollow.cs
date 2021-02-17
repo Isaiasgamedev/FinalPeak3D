@@ -16,6 +16,7 @@ public class SlimeFollow : BaseEnemys
 	public float ActionTimer;
 	public Transform PrincipalBody;
 	public SlimeSense Sense;
+	public GameObject Todestroy;
 
 	public void Update()
 	{
@@ -141,7 +142,7 @@ public class SlimeFollow : BaseEnemys
 		{
 			DoorsActive[i].OrbsControl = Doors.Orbs.ActiveDoor;
 		}
-		Destroy(gameObject);
+		Destroy(Todestroy);
 	}
 
 

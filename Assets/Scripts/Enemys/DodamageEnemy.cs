@@ -11,7 +11,11 @@ public class DodamageEnemy : MonoBehaviour
 		var x = other.GetComponent<Player>();
 		if (x)
 		{
-			FlyeyeNow.AtttackSatesNow = FlyEye.AtttackSates.InReturn;
+			if (FlyeyeNow)
+			{
+				FlyeyeNow.AtttackSatesNow = FlyEye.AtttackSates.InReturn;
+			}
+			
 			if (!x.IndamageNow)
 			{
 				StartCoroutine(x.KnockBack(-3));
