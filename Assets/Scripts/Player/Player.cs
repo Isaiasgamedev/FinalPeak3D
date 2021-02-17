@@ -153,10 +153,8 @@ public class Player: MonoBehaviour
 	}
 
     public void Dodamage(int Dano)
-    {
-        if (StatesOfAttackNow != StatesOfAttack.Inwait) return;
-		CinemachineShake.Instance.ShakeCamera(4f, .1f);
-		StatesOfAttackNow = StatesOfAttack.Indamage;
+    {		
+		CinemachineShake.Instance.ShakeCamera(4f, .1f);		
 		//AnimControl.Play("InDamage");
 		Debug.Log(Dano);
 		float FinalDamage =  -Dano;
@@ -168,8 +166,7 @@ public class Player: MonoBehaviour
     {
         DamageTextPrefab.GetComponent<TextMesh>().text = FinalDamage.ToString();
         DamageTextPrefab.SetActive(true);
-        DamageTextPrefab.GetComponent<Animator>().Play("DamageText");
-        
+        DamageTextPrefab.GetComponent<Animator>().Play("DamageText");        
     }
 
     public void ReturnToNormal()
@@ -182,18 +179,18 @@ public class Player: MonoBehaviour
 
     public IEnumerator KnockBack(int Dano)
     {
+		if (StatesOfAttackNow != StatesOfAttack.Inwait) yield return null; 
 		Debug.Log(Dano);
         while (TimerKnockBack < 0.02f)
         {
-            StatesOfAttackNow = StatesOfAttack.InKnockBack;
+			StatesOfAttackNow = StatesOfAttack.Indamage;
             
             TimerKnockBack += Time.deltaTime;
             transform.Translate(Vector3.back * Time.deltaTime * 4);
             yield return null;
         }
         TimerKnockBack = 0;
-        controller.Move(-transform.forward);
-        StatesOfAttackNow = StatesOfAttack.Inwait;
+        controller.Move(-transform.forward);        
         Dodamage(Dano);
     }
 

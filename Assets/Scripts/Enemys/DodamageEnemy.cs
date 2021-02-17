@@ -10,9 +10,11 @@ public class DodamageEnemy : MonoBehaviour
 	{
 		var x = other.GetComponent<Player>();
 		if (x)
-		{			
-			StartCoroutine(x.KnockBack(-3));
+		{
 			FlyeyeNow.AtttackSatesNow = FlyEye.AtttackSates.InReturn;
+			if (x.StatesOfAttackNow != Player.StatesOfAttack.Inwait) return;
+			StartCoroutine(x.KnockBack(-3));
+			
 		}
 	}
 }
