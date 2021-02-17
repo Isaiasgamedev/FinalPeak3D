@@ -12,8 +12,10 @@ public class DodamageEnemy : MonoBehaviour
 		if (x)
 		{
 			FlyeyeNow.AtttackSatesNow = FlyEye.AtttackSates.InReturn;
-			if (x.StatesOfAttackNow != Player.StatesOfAttack.Inwait) return;
-			StartCoroutine(x.KnockBack(-3));
+			if (!x.IndamageNow)
+			{
+				StartCoroutine(x.KnockBack(-3));
+			}
 			
 		}
 	}

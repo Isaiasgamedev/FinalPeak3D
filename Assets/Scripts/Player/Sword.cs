@@ -104,7 +104,7 @@ public class Sword : MonoBehaviour
                 if (DanoOn == 0 && !InDano)
                 {
                     Target.DoDamage(Damage);
-                    Debug.Log("DM = " + Damage);
+                    //Debug.Log("DM = " + Damage);
 
                     //if (Target != null)
                     //{
@@ -126,7 +126,7 @@ public class Sword : MonoBehaviour
                 if (DanoOn == 1 && !InDano)
                 {
                     Target.DoDamage(Damage + 1);
-                    Debug.Log("DM2 = " + (Damage + 1));
+                    //Debug.Log("DM2 = " + (Damage + 1));
 
                     //if (Target != null)
                     //{
@@ -157,7 +157,7 @@ public class Sword : MonoBehaviour
             {
 
                 other.GetComponent<BaseEnemys>().DoDamage(Damage + 2);
-                Debug.Log("DM3 = " + (Damage + 2));
+                //Debug.Log("DM3 = " + (Damage + 2));
 
                 //if (Target != null)
                 //{

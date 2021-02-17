@@ -36,8 +36,13 @@ public class Player: MonoBehaviour
     public GameObject WeaponInUseNow;
     public GameObject MelleAttack;
     public bool Indialogue;
+	public float TimerDamage;
+	public bool IndamageNow;
+	public GameObject WeaponNow;
 
-    private void Start()
+
+
+	private void Start()
     {
         controller = GetComponent<CharacterController>();    
     }
@@ -47,6 +52,7 @@ public class Player: MonoBehaviour
 		MovePlayer();
 		AttackPlayer();
 		AnimationsControl();
+		ReturnToNormal();
 	}
 
 	public void AnimationsControl()
@@ -66,6 +72,7 @@ public class Player: MonoBehaviour
 	public void MovePlayer()
 	{
 		
+		if (StatesOfAttackNow == StatesOfAttack.InAttack) return;
 		if (StatesOfAttackNow == StatesOfAttack.InKnockBack) return;
 		if (Indialogue) return;
 
@@ -135,12 +142,14 @@ public class Player: MonoBehaviour
 				if (StatesOfAttackNow == StatesOfAttack.Inwait)
 				{
 					ComboControl = 0;
-					GameObject WeaponNow = Instantiate(MelleAttack, WeaponInUseNow.transform.position, Quaternion.identity, WeaponInUseNow.transform);
-					WeaponNow.transform.localEulerAngles = transform.forward;
-					WeaponNow.GetComponentInChildren<Sword>().Pm = this;
-					WeaponNow.GetComponentInChildren<Sword>().Damage += CalculateAttack(0);
-					StatesOfAttackNow = StatesOfAttack.InAttack;
-
+					if(WeaponNow == null)
+					{
+						WeaponNow = Instantiate(MelleAttack, WeaponInUseNow.transform.position, Quaternion.identity, WeaponInUseNow.transform);
+						WeaponNow.transform.localEulerAngles = transform.forward;
+						WeaponNow.GetComponentInChildren<Sword>().Pm = this;
+						WeaponNow.GetComponentInChildren<Sword>().Damage += CalculateAttack(0);
+						StatesOfAttackNow = StatesOfAttack.InAttack;
+					}
 				}
 				else
 				{
@@ -154,9 +163,14 @@ public class Player: MonoBehaviour
 
     public void Dodamage(int Dano)
     {		
-		CinemachineShake.Instance.ShakeCamera(4f, .1f);		
+		CinemachineShake.Instance.ShakeCamera(4f, .1f);
+		if (WeaponNow)
+		{
+			Destroy(WeaponNow);
+		}
+		StatesOfAttackNow = StatesOfAttack.Inwait;
 		//AnimControl.Play("InDamage");
-		Debug.Log(Dano);
+		//Debug.Log(Dano);
 		float FinalDamage =  -Dano;
         Hp -= FinalDamage;
         ShowDamage(FinalDamage);
@@ -171,19 +185,29 @@ public class Player: MonoBehaviour
 
     public void ReturnToNormal()
     {
-        StatesOfAttackNow = StatesOfAttack.Inwait;
-        //AnimControl.StopPlayback();
-    }
+		if (IndamageNow)
+		{
+			TimerDamage += Time.deltaTime;
+			if (TimerDamage > 5)
+			{
+				StatesOfAttackNow = StatesOfAttack.Inwait;
+				IndamageNow = false;
+				TimerDamage = 0;
+			}
+		}
+	}
 
     
 
     public IEnumerator KnockBack(int Dano)
-    {
-		if (StatesOfAttackNow != StatesOfAttack.Inwait) yield return null; 
-		Debug.Log(Dano);
-        while (TimerKnockBack < 0.02f)
+    {		
+		AnimControl.SetInteger("ControlAnim", 0);
+		IndamageNow = true;
+		TimerDamage = 0;
+			
+		while (TimerKnockBack < 0.02f)
         {
-			StatesOfAttackNow = StatesOfAttack.Indamage;
+			StatesOfAttackNow = StatesOfAttack.InKnockBack;
             
             TimerKnockBack += Time.deltaTime;
             transform.Translate(Vector3.back * Time.deltaTime * 4);
@@ -192,7 +216,8 @@ public class Player: MonoBehaviour
         TimerKnockBack = 0;
         controller.Move(-transform.forward);        
         Dodamage(Dano);
-    }
+		
+	}
 
 
     public int CalculateAttack(int AttackNow)

@@ -207,7 +207,7 @@ public class FlyEye : BaseEnemys
 
 		else
 		{
-			Debug.Log("ELSE");
+			//Debug.Log("ELSE");
 			Eye[0].transform.position = Vector3.MoveTowards(Eye[0].transform.position, Eye[1].transform.position, step);			
 			AtttackSatesNow = AtttackSates.InReturn;
 			if (Vector3.Distance(Eye[0].position, Eye[1].position) < 0.001f)
