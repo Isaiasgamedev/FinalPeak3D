@@ -154,11 +154,12 @@ public class Player: MonoBehaviour
 
     public void Dodamage(int Dano)
     {
-        if (StatesOfAttackNow == StatesOfAttack.Indamage) return;
+        if (StatesOfAttackNow != StatesOfAttack.Inwait) return;
 		CinemachineShake.Instance.ShakeCamera(4f, .1f);
-		AnimControl.Play("InDamage");        
-        StatesOfAttackNow = StatesOfAttack.Indamage;
-        float FinalDamage = (Defense / 2) - Dano;
+		StatesOfAttackNow = StatesOfAttack.Indamage;
+		//AnimControl.Play("InDamage");
+		Debug.Log(Dano);
+		float FinalDamage =  -Dano;
         Hp -= FinalDamage;
         ShowDamage(FinalDamage);
     }
@@ -180,9 +181,9 @@ public class Player: MonoBehaviour
     
 
     public IEnumerator KnockBack(int Dano)
-    {              
-
-        while (TimerKnockBack < 0.05f)
+    {
+		Debug.Log(Dano);
+        while (TimerKnockBack < 0.02f)
         {
             StatesOfAttackNow = StatesOfAttack.InKnockBack;
             

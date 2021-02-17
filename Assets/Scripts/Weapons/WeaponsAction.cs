@@ -11,9 +11,10 @@ public class WeaponsAction : MonoBehaviour
     public Puzzle_02 PuzzleResolve;
 	public GameObject[] Enemy;
 	public Doors[] Desactive;
+	public ShieldMinimaze Play;
 
 
-    private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter(Collider other)
     {
         var x = other.GetComponent<Player>();
         if (x != null)
@@ -31,22 +32,20 @@ public class WeaponsAction : MonoBehaviour
 				Desactive[i].OrbsControl = Doors.Orbs.DesactiveDoor;
 			}
 
-            AnimControl.Play("Get");
-        }
+			AnimControl.Play("Get");
+			
+
+		}
     }
 
-    bool AnimatorIsPlaying()
-    {
-        return AnimControl.GetCurrentAnimatorStateInfo(0).length >
-               AnimControl.GetCurrentAnimatorStateInfo(0).normalizedTime;
-    }
+   
 
     public void DestroyObject()
     {
-        if (!AnimatorIsPlaying())
-        {
-            Destroy(Reference);
-        }
+        
+			Play.PlayAnimNow();
+			Destroy(Reference);
+     
 
     }
 

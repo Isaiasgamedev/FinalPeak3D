@@ -52,6 +52,7 @@ MonoBehaviour:
   Bullet: {fileID: 0}
   DoorsActive:
   - {fileID: 0}
+  - {fileID: 0}
   Hp: 100
   Speed: 0
   Attack: 0
@@ -62,6 +63,7 @@ MonoBehaviour:
   DamageTextPrefab: {fileID: 4432846105938246493}
   Anim: {fileID: 6583968139239279706}
   ActionsNow: 2
+  AtttackSatesNow: 0
   ActionTimer: 0
   Sense: {fileID: 767709836573846919}
   Eye:
@@ -205,7 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd6019f0d3f7ff4a847a29625e60c12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slime: {fileID: 0}
   PlayerNow: {fileID: 0}
 --- !u!65 &2217682780347872489
 BoxCollider:
@@ -218,8 +219,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.132141, y: 1.8296261, z: 12.852478}
-  m_Center: {x: 0.08155823, y: 0.41481304, z: -0.5437012}
+  m_Size: {x: 5.9690857, y: 1.8296261, z: 11.604645}
+  m_Center: {x: 0.07395935, y: 0.41481304, z: 0.080215454}
 --- !u!1 &6583968139229904768
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,7 +506,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6583968139230192562}
   - component: {fileID: 6583968139229904799}
-  - component: {fileID: 6583968139229904785}
+  - component: {fileID: 2052315548}
   m_Layer: 0
   m_Name: EyeBallCTRL
   m_TagString: Untagged
@@ -539,8 +540,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757b768b4384a0e4b918676270c5b605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &6583968139229904785
-SphereCollider:
+  Damage: 0
+  teste: 0
+--- !u!65 &2052315548
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -550,8 +553,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.18
-  m_Center: {x: 0, y: -0.01, z: 0}
+  m_Size: {x: 0.4, y: 0.4, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6583968139229904788
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +641,7 @@ Transform:
   m_GameObject: {fileID: 6583968139229904792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 767709836573846968}
   - {fileID: 767709835131344172}

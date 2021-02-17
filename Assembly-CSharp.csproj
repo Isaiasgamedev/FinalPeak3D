@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Enemys\SlimeSense.cs" />
     <Compile Include="Assets\Scripts\Level\Handle.cs" />
     <Compile Include="Assets\Scripts\Level\Interactive\Doors.cs" />
+    <Compile Include="Assets\Scripts\Level\Interactive\ShieldMinimaze.cs" />
     <Compile Include="Assets\Scripts\Level\LevelsPuzzles\0\Puzzle_01.cs" />
     <Compile Include="Assets\Scripts\Level\LevelsPuzzles\0\Puzzle_02.cs" />
     <Compile Include="Assets\Scripts\Level\LevelsPuzzles\BasePuzzle.cs" />

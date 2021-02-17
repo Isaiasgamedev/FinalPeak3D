@@ -11,6 +11,8 @@ public class FlyEye : BaseEnemys
 	public Animator Anim;
 	public enum Actions { Sense, Attack, Move }
 	public Actions ActionsNow;
+	public enum AtttackSates { InAttack, InReturn, InWait}
+	public AtttackSates AtttackSatesNow;
 	public float ActionTimer;	
 	public SlimeSense Sense;
 	public Transform[] Eye;
@@ -20,6 +22,7 @@ public class FlyEye : BaseEnemys
 	float step;
 	bool Look;
 	public float turnRate;
+	
 
 
 	// Update is called once per frame
@@ -59,8 +62,6 @@ public class FlyEye : BaseEnemys
 		if (Player != null)
 		{
 			LookPlayer();
-
-
 		}
 		
 
@@ -91,6 +92,7 @@ public class FlyEye : BaseEnemys
 				Anim.SetInteger("Control", 2);
 				Anim.SetBool("Hit", false);
 				ActionsNow = Actions.Attack;
+				AtttackSatesNow = AtttackSates.InAttack;
 				ActionTimer = 0;
 				Look = true;
 			}
@@ -110,22 +112,25 @@ public class FlyEye : BaseEnemys
 		Eye[0].transform.localEulerAngles = new Vector3(-90, 0, 0);
 		if (Player != null && !DamagePlayerNow)
 		{
+			
 			ActionTimer += Time.deltaTime;
 			if (ActionTimer < Actime)
 			{
-				
-
-				if (Vector3.Distance(Eye[0].position, Player.gameObject.transform.position) > 0.001f)
+									
+				if(AtttackSatesNow == AtttackSates.InAttack)
 				{
 					LookPlayer();
-
 					Eye[0].transform.position = Vector3.MoveTowards(Eye[0].transform.position, Player.gameObject.transform.position, step);
 					Eye[0].LookAt(Player.gameObject.transform);
 					Eye[0].transform.parent = this.gameObject.transform;
-				}
+				}					
 				
+				if (Vector3.Distance(Eye[0].position, Player.gameObject.transform.position) < 0.1f)
+				{
+					AtttackSatesNow = AtttackSates.InReturn;					
+				}
 
-				else if (Vector3.Distance(Eye[0].position, Player.gameObject.transform.position) < 0.001f)
+				if (AtttackSatesNow == AtttackSates.InReturn)
 				{
 					Eye[0].transform.position = Vector3.MoveTowards(Eye[0].transform.position, Eye[1].transform.position, step);
 					Eye[0].LookAt(Player.gameObject.transform);
@@ -136,11 +141,13 @@ public class FlyEye : BaseEnemys
 						Eye[0].transform.parent = Prev;
 						ActionTimer = 0;
 						ActionsNow = Actions.Move;
+						AtttackSatesNow = AtttackSates.InWait;
 						Look = true;
+
 					}
 				}
 
-			}			
+			}
 
 			if (ActionTimer > Actime)
 			{
@@ -153,14 +160,56 @@ public class FlyEye : BaseEnemys
 					Eye[0].transform.parent = Prev;
 					ActionTimer = 0;
 					ActionsNow = Actions.Move;
+					AtttackSatesNow = AtttackSates.InWait;
 					Look = true;
+
 				}
 			}
+
+
+
+
+			//if (Vector3.Distance(Eye[0].position, Player.gameObject.transform.position) < 0.001f)
+			//{
+			//	Debug.Log("TESTE");
+			//	Eye[0].transform.position = Vector3.MoveTowards(Eye[0].transform.position, Eye[1].transform.position, step);
+			//	Eye[0].LookAt(Player.gameObject.transform);
+			//	if (Vector3.Distance(Eye[0].position, Eye[1].position) < 0.001f)
+			//	{
+			//		Anim.SetInteger("Control", 0);
+			//		Anim.SetBool("Hit", false);
+			//		Eye[0].transform.parent = Prev;
+			//		ActionTimer = 0;
+			//		ActionsNow = Actions.Move;
+			//		Look = true;
+			//	}
+			//}
+
+
+
+			//if (ActionTimer > Actime)
+			//{
+			//	Eye[0].transform.position = Vector3.MoveTowards(Eye[0].transform.position, Eye[1].transform.position, step);
+			//	Eye[0].LookAt(Player.gameObject.transform);
+			//	if (Vector3.Distance(Eye[0].position, Eye[1].position) < 0.001f)
+			//	{
+			//		Anim.SetInteger("Control", 0);
+			//		Anim.SetBool("Hit", false);
+			//		Eye[0].transform.parent = Prev;
+			//		ActionTimer = 0;
+			//		ActionsNow = Actions.Move;
+			//		Look = true;
+			//	}
+			//}
+
+
 		}
 
 		else
 		{
+			Debug.Log("ELSE");
 			Eye[0].transform.position = Vector3.MoveTowards(Eye[0].transform.position, Eye[1].transform.position, step);			
+			AtttackSatesNow = AtttackSates.InReturn;
 			if (Vector3.Distance(Eye[0].position, Eye[1].position) < 0.001f)
 			{
 				Anim.SetInteger("Control", 0);
@@ -168,10 +217,15 @@ public class FlyEye : BaseEnemys
 				Eye[0].transform.parent = Prev;
 				ActionTimer = 0;
 				ActionsNow = Actions.Move;
+				AtttackSatesNow = AtttackSates.InWait;
 				Look = true;
-				DamagePlayerNow = false;
+
 			}
 		}
+
+
+
+
 	}
 
 	

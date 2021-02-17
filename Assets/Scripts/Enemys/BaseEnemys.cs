@@ -12,7 +12,7 @@ public class BaseEnemys : MonoBehaviour
 	public Player Player = null;
 	public Transform Target;
 	public GameObject Bullet;
-	public Doors[] DoorsActive;
+	public Doors[] DoorsActive;	
 
     [Header("ENNEMY STATUS")]
 
@@ -25,7 +25,7 @@ public class BaseEnemys : MonoBehaviour
 
     public virtual void DoAction()
     {
-		//Bullet = Instantiate()
+		
 
 	}
 
@@ -46,28 +46,28 @@ public class BaseEnemys : MonoBehaviour
 
     public virtual void OnTriggerStay(Collider other)
     {
-        var x = other.GetComponent<Player>();
-        if (x)
-        {
-            if (!DamagePlayerNow)
-            {
-                StartCoroutine(x.KnockBack(-3));
-                DamagePlayerNow = true;
-            }
+        //var x = other.GetComponent<Player>();
+        //if (x)
+        //{
+        //    if (!DamagePlayerNow)
+        //    {
+        //        StartCoroutine(x.KnockBack(-3));
+        //        DamagePlayerNow = true;
+        //    }
                        
-        }
+        //}
     }
 
     public void OnTriggerExit(Collider other)
     {
-        var x = other.GetComponent<Player>();
-        if (x)
-        {
-            if (DamagePlayerNow)
-            {
-                DamagePlayerNow = false;
-            }
+        //var x = other.GetComponent<Player>();
+        //if (x)
+        //{
+        //    if (DamagePlayerNow)
+        //    {
+        //        DamagePlayerNow = false;
+        //    }
 
-        }
+        //}
     }
 }

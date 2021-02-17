@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlimeSense : MonoBehaviour
 {
-	public BaseEnemys Slime;
+	
 	public Player PlayerNow = null;
 
 
