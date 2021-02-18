@@ -16,20 +16,18 @@ MonoBehaviour:
   - Mybox: {fileID: 21300000, guid: 80e0fd9b1f6a03f49bb6f0662c758af3, type: 3}
     Name: 0 - Start Dialogue
     Sentences:
-    - Onde eu estou?
-    - "Que lugar \xE9 este?"
-    - "Como cheguei at\xE9 aqui?"
-    - "N\xE3o consigo me lembrar de nada... Que estranho."
-    - "Talvez seja melhor procurar uma sa\xEDda."
+    - I do not remember anything...
+    - ' Where am I? What is this place?...'
+    - ' I need to find a way out'
   DataFile:
   - Mybox: {fileID: 21300000, guid: 6521b862243608c4da7594bf9c17f9f6, type: 3}
     Name: FIle0
     Sentences:
-    - Tivemos que desativar todas as portas do andar...
-    - "As criaturas queriam acabar com todos n\xF3s..."
-    - Usamos a alavanca da parte inferior do andar...
-    - "Para desligar algumas portas e tentar conte-l\xE1s..."
-    - "Mas ja era tarde demais, n\xE3o iriamos conseguir sair daqui com vida!"
+    - ' We try to close all doors, but ...'
+    - Nobody can understand what is happening here ...
+    - ' The building was all changed suddenly, nothing is in place ...'
+    - What is this place? Where did we end up?
+    - When the creatures appeared everyone knew it was too late
   - Mybox: {fileID: 21300000, guid: 6521b862243608c4da7594bf9c17f9f6, type: 3}
     Name: FIle1
     Sentences:
