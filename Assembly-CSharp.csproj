@@ -99,9 +99,10 @@
     <Compile Include="Assets\Scripts\Level\OrbsLiberation.cs" />
     <Compile Include="Assets\Scripts\Level\Platforms\PlatMovelHorizontal.cs" />
     <Compile Include="Assets\Scripts\Level\Platforms\PointsChangeDirection.cs" />
+    <Compile Include="Assets\Scripts\Level\ReturnPosition.cs" />
     <Compile Include="Assets\Scripts\Manager\ManagerItens.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
-    <Compile Include="Assets\Scripts\Player\ReturnPosition.cs" />
+    <Compile Include="Assets\Scripts\Player\ReturnPositionPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\Sword.cs" />
     <Compile Include="Assets\Scripts\SetDesactive.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\DialogueActive.cs" />

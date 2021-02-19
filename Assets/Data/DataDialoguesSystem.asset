@@ -50,11 +50,10 @@ MonoBehaviour:
   - Mybox: {fileID: 21300000, guid: 2c96ec064fae6bb41a3f0d66aea2f005, type: 3}
     Name: FIle4
     Sentences:
-    - "Bem guardamos aquela ARMA numa das salas que est\xE1 bloqueada pelo..."
-    - Orb Vermelho, por mais loucura que possa parece pediram para...
-    - "deixar o Orb bem aqui, ser\xE1 que eles sabem que qualquer um..."
-    - "que pegar este Orb, ter\xE1 acesso a todas as portas vermelhas..."
-    - "e pior poder\xE1 pegar aquela ARMA! "
+    - Everything is out of place, the whole building has changed ...
+    - ' I''m trying to get away but these elevators don''t get anywhere ...'
+    - Oh it's not too late, the creatures are back, my God, if anyone finds this,
+      tell my kids that I love them !!!
   - Mybox: {fileID: 21300000, guid: 6521b862243608c4da7594bf9c17f9f6, type: 3}
     Name: FIle5
     Sentences:
