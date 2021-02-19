@@ -11,7 +11,7 @@ public class ReturnPositionPlayer : MonoBehaviour
 		var x = other.GetComponent<Player>();
 		if(x != null)
 		{
-			Debug.Log("Teste");
+			//Debug.Log("Teste");
 			x.transform.position = Reposition.position;
 		}
 	}
