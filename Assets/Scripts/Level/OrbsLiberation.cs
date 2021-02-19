@@ -11,8 +11,8 @@ public class OrbsLiberation : MonoBehaviour
 	public Animator anim;
 	public Player x = null;
 	public GameObject Particule;
-	public string NewText;
-	public TextMesh TextDisplay;
+	
+	
 
 	private void OnTriggerStay(Collider other)
     {
@@ -31,8 +31,7 @@ public class OrbsLiberation : MonoBehaviour
 				}
 
 				anim.Play("RedConsole");
-				Particule.SetActive(false);
-				TextDisplay.text = NewText;
+				Particule.SetActive(false);				
 			}
 
 		}		

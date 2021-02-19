@@ -15,6 +15,8 @@ public class DialogueSystem : MonoBehaviour
     public DataDialoguesSystem DataDialogue;
     public Player PlayerControl;
     public GameObject ToDestroy;
+	public Animator ShieldAnim;
+	public Animator FileAnim;
 
 
     public void Start()
@@ -65,7 +67,17 @@ public class DialogueSystem : MonoBehaviour
             Button_Box[0].SetActive(false);
             Button_Box[1].SetActive(false);
             PlayerControl.Indialogue = false;
-            DestoyObjects();
+			if (ShieldAnim)
+			{
+				ShieldAnim.Play("MinimazeShield");
+			}
+
+			if (FileAnim)
+			{
+				FileAnim.Play("Get");
+			}
+
+            //DestoyObjects();
         }
     }
 

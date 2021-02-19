@@ -69,7 +69,6 @@
     <Compile Include="Assets\Cool Visual Effects - Part 1\Scripts\EffectManager.cs" />
     <Compile Include="Assets\DynamicEnemyPlants\Demo\DemoController.cs" />
     <Compile Include="Assets\DynamicEnemyPlants\Demo\SimpleRotate.cs" />
-    <Compile Include="Assets\First.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\CameraShakeSimpleScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\ProjectileMoveScript.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\RotateToMouseScript.cs" />
@@ -104,10 +103,10 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\ReturnPosition.cs" />
     <Compile Include="Assets\Scripts\Player\Sword.cs" />
+    <Compile Include="Assets\Scripts\SetDesactive.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\DialogueActive.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\DialogueSystem.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponsAction.cs" />
-    <Compile Include="Assets\Second.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_DissolveOverTime.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_ExampleReview.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_MouseRotation.cs" />

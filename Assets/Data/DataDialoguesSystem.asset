@@ -31,27 +31,22 @@ MonoBehaviour:
   - Mybox: {fileID: 21300000, guid: 6521b862243608c4da7594bf9c17f9f6, type: 3}
     Name: FIle1
     Sentences:
-    - "Nunca entendemos bem como este pr\xE9dio foi construido..."
-    - mas sempre tomamos muito cuidado com esses buracos...
-    - afinal eles realmente parecem ser muito perigosos...
-    - "existem hist\xF3rias por todo o pr\xE9dio que aqueles..."
-    - que cairam neles, morreram na mesma hora...
-    - "\"USE ESPA\xC7O (SPACE) PARA PULAR\""
+    - Watch out for holes in the path ...
+    - ' USE ("SPACE") TO JUMP'
   - Mybox: {fileID: 21300000, guid: b68c66cd8104b624097ec3ea1cab5318, type: 3}
     Name: FIle2
     Sentences:
-    - "Olhe para o lado e veja como s\xE3o as portas desativadas e ativadas..."
-    - "esta alavanca ir\xE1 ativar a porta desativada da parte superior.."
-    - "para ativa-l\xE1 se aproxime da alavanca e use o bot\xE3o Z"
-    - '"USE Z (Z BUTTON) PARA ATIVAR A ALAVANCA"'
+    - ' Some panels on the walls are used to enable disabled doors ...'
+    - Others serve to activate mechanisms like those on platforms ...
+    - ' There are those who may be of no use ...'
+    - ' And those who are simply deadly traps ...'
+    - '  USE THE KEY ("Z") TO ACTIVATE THEM'
   - Mybox: {fileID: 21300000, guid: 6521b862243608c4da7594bf9c17f9f6, type: 3}
     Name: FIle3
     Sentences:
-    - Este lugar com certeza deve ter sido projetado por alguma mente...
-    - "muito, mas muito maluca mesmo, estas plataformas que n\xE3o levam..."
-    - "a lugar nenhum est\xE3o muito al\xE9m do meu entendimento, parece que..."
-    - toda vez que desejo ir a algum lugar tenho que usar o maximo...
-    - "do meu racicinio para conseguir chegar at\xE9 l\xE1..."
+    - ' This console will give you the data you need to open all the red doors on
+      this floor ...'
+    - USE ("Z") TO ENABLE THE CONSOLE
   - Mybox: {fileID: 21300000, guid: 2c96ec064fae6bb41a3f0d66aea2f005, type: 3}
     Name: FIle4
     Sentences:
