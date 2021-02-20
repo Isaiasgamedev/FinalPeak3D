@@ -32,8 +32,7 @@ public class WeaponsAction : MonoBehaviour
 				Desactive[i].OrbsControl = Doors.Orbs.DesactiveDoor;
 			}
 
-			AnimControl.Play("Get");
-			
+			AnimControl.Play("Get");			
 
 		}
     }
@@ -41,12 +40,9 @@ public class WeaponsAction : MonoBehaviour
    
 
     public void DestroyObject()
-    {
-        
-			Play.PlayAnimNow();
-			Destroy(Reference);
-     
-
+    {        
+		Play.PlayAnimNow();
+		Destroy(Reference);
     }
 
 }

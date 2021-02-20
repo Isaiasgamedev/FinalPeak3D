@@ -15,7 +15,7 @@ MonoBehaviour:
   DataNow:
   - WeaponName: 
     TypesWeaponNow: 0
-    Level: 1
+    Level: 0
   - WeaponName: 
     TypesWeaponNow: 1
     Level: 0

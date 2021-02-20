@@ -23,7 +23,7 @@ public class OrbsLiberation : MonoBehaviour
 		{
 			if (Input.GetButtonDown("Action"))
 			{
-				Debug.Log("Action");
+				//Debug.Log("Action");
 				ManagerItens.Instance.OrbsDataNow.DataNow[(int)OrbsControl].PlayerHas = true;
 				for (int i = 0; i < Desactive.Length; i++)
 				{

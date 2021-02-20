@@ -67,6 +67,12 @@
     <Compile Include="Assets\CinemachineShake\Scripts\CinemachineShake.cs" />
     <Compile Include="Assets\Cool Visual Effects - Part 1\Scripts\ConstantRotation.cs" />
     <Compile Include="Assets\Cool Visual Effects - Part 1\Scripts\EffectManager.cs" />
+    <Compile Include="Assets\DDSystem\Demo\Scripts\TestMessage.cs" />
+    <Compile Include="Assets\DDSystem\Demo\Scripts\TestMessage_Selection.cs" />
+    <Compile Include="Assets\DDSystem\Script\Character.cs" />
+    <Compile Include="Assets\DDSystem\Script\DialogBase.cs" />
+    <Compile Include="Assets\DDSystem\Script\DialogManager.cs" />
+    <Compile Include="Assets\DDSystem\Script\EmotionDrawer.cs" />
     <Compile Include="Assets\DynamicEnemyPlants\Demo\DemoController.cs" />
     <Compile Include="Assets\DynamicEnemyPlants\Demo\SimpleRotate.cs" />
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\CameraShakeSimpleScript.cs" />
@@ -76,6 +82,8 @@
     <Compile Include="Assets\GabrielAguiarProductions\Scripts\SpawnProjectilesScript.cs" />
     <Compile Include="Assets\Jammo-Character\Scripts\CharacterSkinController.cs" />
     <Compile Include="Assets\Jammo-Character\Scripts\MovementInput.cs" />
+    <Compile Include="Assets\NeonSphere - Starter Pack\Scripts\CameraController.cs" />
+    <Compile Include="Assets\NeonSphere - Starter Pack\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Camera\ShakeCam.cs" />
     <Compile Include="Assets\Scripts\Damage\DamageText.cs" />
     <Compile Include="Assets\Scripts\Damage\DesactiveDamage.cs" />
@@ -107,6 +115,7 @@
     <Compile Include="Assets\Scripts\SetDesactive.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\DialogueActive.cs" />
     <Compile Include="Assets\Scripts\UI\Dialogue\DialogueSystem.cs" />
+    <Compile Include="Assets\Scripts\UI\UiControllerPlayer.cs" />
     <Compile Include="Assets\Scripts\Weapons\WeaponsAction.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_DissolveOverTime.cs" />
     <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_ExampleReview.cs" />
@@ -125,6 +134,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\DDSystem\Graphic\NANUM_LICENSE.txt" />
     <None Include="Assets\Ultimate 10 Plus Shaders\Shaders\Depth Mask Edge Detection.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />

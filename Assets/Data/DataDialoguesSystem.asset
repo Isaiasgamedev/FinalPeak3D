@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DataPlayer:
   - Mybox: {fileID: 21300000, guid: 80e0fd9b1f6a03f49bb6f0662c758af3, type: 3}
-    Name: 0 - Start Dialogue
+    Name: ??????????
     Sentences:
     - I do not remember anything...
     - ' Where am I? What is this place?...'

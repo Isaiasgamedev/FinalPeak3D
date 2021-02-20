@@ -19,6 +19,7 @@ public class DialogueActive : MonoBehaviour
 		{
 			if (other.GetComponent<Player>())
 			{
+				MyDialogue.NameDisplay.text = MyDialogue.DataDialogue.DataFile[Mydata].Name;
 				MyDialogue.ToDestroy = this.gameObject;
 				MyDialogue.ShieldAnim = Shieldanim;
 				MyDialogue.FileAnim = FileAnim;

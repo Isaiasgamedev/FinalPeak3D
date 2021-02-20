@@ -7,7 +7,8 @@ using TMPro;
 public class DialogueSystem : MonoBehaviour
 {
     public TextMeshProUGUI TextDisplay;
-    public string[] Sentences;
+	public TextMeshProUGUI NameDisplay;
+	public string[] Sentences;
     public int Index;
     public WaitForSeconds Seconds = new WaitForSeconds(0.02f);
     public GameObject[] Button_Box;
@@ -27,8 +28,11 @@ public class DialogueSystem : MonoBehaviour
 
 	public void Update()
     {
+
+		
 		if (TextDisplay.text == Sentences[Index])
 		{
+			NameDisplay.gameObject.SetActive(true);
 			Button_Box[0].SetActive(true);
 			Button_Box[0].GetComponent<Button>().Select();
 			textanim.Play("Idle");
@@ -66,7 +70,8 @@ public class DialogueSystem : MonoBehaviour
             TextDisplay.text = "";
             Button_Box[0].SetActive(false);
             Button_Box[1].SetActive(false);
-            PlayerControl.Indialogue = false;
+			NameDisplay.gameObject.SetActive(false);
+			PlayerControl.Indialogue = false;
 			if (ShieldAnim)
 			{
 				ShieldAnim.Play("MinimazeShield");

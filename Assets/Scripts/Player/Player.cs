@@ -221,8 +221,10 @@ public class Player: MonoBehaviour
 
 	public void Dodge()
 	{
+		StatesOfAttackNow = StatesOfAttack.InKnockBack;
 		AnimControl.SetInteger("ControlAnim", 0);
 		Impact.AddImpact(-transform.forward, ImpactValue);
+		StatesOfAttackNow = StatesOfAttack.Inwait;
 	}
 
 
