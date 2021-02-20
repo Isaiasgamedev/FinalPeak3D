@@ -18,7 +18,7 @@ public class DodamageEnemy : MonoBehaviour
 			
 			if (!x.IndamageNow)
 			{
-				StartCoroutine(x.KnockBack(-3));
+				x.KnockBack(-3);
 			}
 			
 		}

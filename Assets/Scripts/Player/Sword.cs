@@ -111,9 +111,21 @@ public class Sword : MonoBehaviour
                     //    Target.GetComponent<Rigidbody>().AddForce(gameObject.transform.forward * 1, ForceMode.Impulse);
                     //}
 
-                    HitNow = Instantiate(HitParticule, ReferenceHit.transform.position, Quaternion.identity);
-                    AudioEffect.clip = DoHit[1];
-                    AudioEffect.Play();
+
+					if (HitNow == null)
+					{
+						HitNow = Instantiate(HitParticule, ReferenceHit.transform.position, Quaternion.identity);
+						AudioEffect.clip = DoHit[1];
+						AudioEffect.Play();
+					}
+					else
+					{
+						HitNow.transform.position = ReferenceHit.transform.position;
+						HitNow.GetComponent<ParticleSystem>().Play();
+						AudioEffect.clip = DoHit[1];
+						AudioEffect.Play();
+					}
+                   
 
 
                     InDano = true;

@@ -29,7 +29,9 @@ public class Player: MonoBehaviour
     public int Dextry;
 
 
-    [Header("STATES OF ATTACK")]
+	[Header("STATES OF ATTACK")]
+	public Impact Impact;
+	public float ImpactValue;
     public StatesOfAttack StatesOfAttackNow;
     public enum StatesOfAttack { Inwait, InAttack, InKnockBack, Indamage}    
     public int ComboControl;
@@ -75,6 +77,12 @@ public class Player: MonoBehaviour
 		if (StatesOfAttackNow == StatesOfAttack.InAttack) return;
 		if (StatesOfAttackNow == StatesOfAttack.InKnockBack) return;
 		if (Indialogue) return;
+
+
+		if (Input.GetButtonDown("Fire2"))
+		{
+			Dodge();
+		}
 
 
 		groundedPlayer = controller.isGrounded;
@@ -199,28 +207,27 @@ public class Player: MonoBehaviour
 
     
 
-    public IEnumerator KnockBack(int Dano)
+    public void KnockBack(int Dano)
     {		
 		AnimControl.SetInteger("ControlAnim", 0);
 		IndamageNow = true;
 		TimerDamage = 0;
-			
-		while (TimerKnockBack < 0.02f)
-        {
-			StatesOfAttackNow = StatesOfAttack.InKnockBack;
-            
-            TimerKnockBack += Time.deltaTime;
-            transform.Translate(Vector3.back * Time.deltaTime * 4);
-            yield return null;
-        }
-        TimerKnockBack = 0;
-        controller.Move(-transform.forward);        
-        Dodamage(Dano);
+		Impact.AddImpact(-transform.forward, ImpactValue);
+		StatesOfAttackNow = StatesOfAttack.InKnockBack;
+		Dodamage(Dano);
 		
 	}
 
 
-    public int CalculateAttack(int AttackNow)
+	public void Dodge()
+	{
+		AnimControl.SetInteger("ControlAnim", 0);
+		Impact.AddImpact(-transform.forward, ImpactValue);
+	}
+
+
+
+	public int CalculateAttack(int AttackNow)
     {
         AttackNow += Attack + (Dextry / 2);
         return AttackNow;
