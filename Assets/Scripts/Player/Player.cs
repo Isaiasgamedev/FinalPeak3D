@@ -10,12 +10,19 @@ public class Player: MonoBehaviour
     CharacterController controller;
     public Vector3 move;
     private Vector3 playerVelocity;
-    private bool groundedPlayer;
+    public bool groundedPlayer;
     private float gravityValue = -9.81f; 
     public float TimerKnockBack;
     public Animator AnimControl;
     public GameObject DamageTextPrefab;
 	public TextMeshProUGUI HpValor;
+	
+
+	[Header("STATUS OF JUMP")]
+
+	public InGround Ground;
+	public bool IsJumping;
+	public bool WasInGround;
 
     [Header("STATUS OF PLAYER")]
 
@@ -68,6 +75,12 @@ public class Player: MonoBehaviour
 		{
 			AnimControl.SetInteger("ControlAnim", 2);
 		}
+
+		if (StatesOfAttackNow == StatesOfAttack.InKnockBack)
+		{
+			AnimControl.SetInteger("ControlAnim", 4);
+		}
+
 		
 	}
 
@@ -78,6 +91,28 @@ public class Player: MonoBehaviour
 		if (StatesOfAttackNow == StatesOfAttack.InKnockBack) return;
 		if (Indialogue) return;
 
+		groundedPlayer = Ground.InGroundNow;
+		Debug.Log("Anim = " + AnimControl.GetInteger("ControlAnim"));		
+
+
+		if (Input.GetButtonDown("Jump") && groundedPlayer)
+		{
+			IsJumping = true;
+			AnimControl.SetInteger("ControlAnim", 3);
+			playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);			
+		}		
+
+		if(IsJumping && !groundedPlayer)
+		{
+			WasInGround = true;
+		}
+
+		else if(WasInGround && IsJumping && groundedPlayer)
+		{
+			IsJumping = false;
+			WasInGround = false;
+		}
+		
 
 		if (Input.GetButtonDown("Fire2"))
 		{
@@ -85,7 +120,7 @@ public class Player: MonoBehaviour
 		}
 
 
-		groundedPlayer = controller.isGrounded;
+		
 		if (groundedPlayer && playerVelocity.y < 0)
 		{
 			playerVelocity.y = 0f;
@@ -93,52 +128,54 @@ public class Player: MonoBehaviour
 
 		move = new Vector3(0, 0, Input.GetAxis("Vertical"));
 
-
 		if (move.z > 0)
 		{
 			controller.Move(transform.forward * Time.deltaTime * playerSpeed);
-			AnimControl.SetInteger("ControlAnim", 1);
+			if(!IsJumping && !WasInGround)
+			{
+				AnimControl.SetInteger("ControlAnim", 1);
+			}
+			
 		}
+
 		else if (move.z < 0)
 		{
 			controller.Move(transform.forward * Time.deltaTime * -playerSpeed);
-			AnimControl.SetInteger("ControlAnim", 1);
+			if (!IsJumping && !WasInGround)
+			{
+				AnimControl.SetInteger("ControlAnim", 1);
+			}
 		}		
 
 		if (Input.GetAxis("Horizontal") < 0)
 		{
 			transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + Input.GetAxis("Horizontal") * Time.deltaTime * 64, 0);
-			if (move.z == 0)
+			if (!IsJumping && !WasInGround && move.z == 0)
 			{
 				AnimControl.SetInteger("ControlAnim", 0);
 			}
 		}
+
 		else if (Input.GetAxis("Horizontal") > 0)
 		{
 			transform.eulerAngles = new Vector3(0, transform.eulerAngles.y + Input.GetAxis("Horizontal") * Time.deltaTime * 64, 0);
-			if (move.z == 0)
+			if (!IsJumping && !WasInGround && move.z == 0)
 			{
 				AnimControl.SetInteger("ControlAnim", 0);
 			}
 		}
 
-		// Changes the height position of the player..
-		if (Input.GetButtonDown("Jump") && groundedPlayer)
-		{
-			AnimControl.Play("Jump");
-			playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
-		}
-
-		if(Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
+		if (!IsJumping && !WasInGround && move.z == 0 )
 		{
 			AnimControl.SetInteger("ControlAnim", 0);
 		}
 
+		// Changes the height position of the player..
+
+
 		playerVelocity.y += gravityValue * Time.deltaTime;
 		controller.Move(playerVelocity * Time.deltaTime);
 	}
-
-	
 
 	public void AttackPlayer()
 	{
@@ -176,13 +213,14 @@ public class Player: MonoBehaviour
 		{
 			Destroy(WeaponNow);
 		}
-		StatesOfAttackNow = StatesOfAttack.Inwait;
+		
 		//AnimControl.Play("InDamage");
 		//Debug.Log(Dano);
 		float FinalDamage =  -Dano;
         Hp -= FinalDamage;
         ShowDamage(FinalDamage);
-    }
+		//StatesOfAttackNow = StatesOfAttack.Inwait;
+	}
 
     public void ShowDamage(float FinalDamage)
     {
@@ -208,12 +246,11 @@ public class Player: MonoBehaviour
     
 
     public void KnockBack(int Dano)
-    {		
-		AnimControl.SetInteger("ControlAnim", 0);
+    {
+		StatesOfAttackNow = StatesOfAttack.InKnockBack;		
 		IndamageNow = true;
 		TimerDamage = 0;
-		Impact.AddImpact(-transform.forward, ImpactValue);
-		StatesOfAttackNow = StatesOfAttack.InKnockBack;
+		Impact.AddImpact(-transform.forward, ImpactValue);		
 		Dodamage(Dano);
 		
 	}

@@ -18,6 +18,7 @@ public class DialogueSystem : MonoBehaviour
     public GameObject ToDestroy;
 	public Animator ShieldAnim;
 	public Animator FileAnim;
+	public GameObject Avatar;
 
 
     public void Start()
@@ -32,6 +33,7 @@ public class DialogueSystem : MonoBehaviour
 		
 		if (TextDisplay.text == Sentences[Index])
 		{
+			Avatar.SetActive(true);
 			NameDisplay.gameObject.SetActive(true);
 			Button_Box[0].SetActive(true);
 			Button_Box[0].GetComponent<Button>().Select();
@@ -68,7 +70,8 @@ public class DialogueSystem : MonoBehaviour
         else
         {
             TextDisplay.text = "";
-            Button_Box[0].SetActive(false);
+			Avatar.SetActive(false);
+			Button_Box[0].SetActive(false);
             Button_Box[1].SetActive(false);
 			NameDisplay.gameObject.SetActive(false);
 			PlayerControl.Indialogue = false;

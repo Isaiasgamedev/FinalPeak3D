@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DataDialoguesSystem
   m_EditorClassIdentifier: 
   DataPlayer:
-  - Mybox: {fileID: 21300000, guid: 80e0fd9b1f6a03f49bb6f0662c758af3, type: 3}
+  - Avatar: {fileID: 21300000, guid: da0be32fa9ab120478cd7c222a6c6bf0, type: 3}
+    Mybox: {fileID: 21300000, guid: 6521b862243608c4da7594bf9c17f9f6, type: 3}
     Name: ??????????
     Sentences:
     - I do not remember anything...

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [Serializable]
 public class DataDialoguePlayer
 {
+	public Sprite Avatar;
     public Sprite Mybox;
     public string Name;
     public string[] Sentences;
@@ -14,7 +15,8 @@ public class DataDialoguePlayer
 [Serializable]
 public class DataDialogueFILE
 {
-    public Sprite Mybox;
+	public Sprite Avatar;
+	public Sprite Mybox;
     public string Name;
     public string[] Sentences;
 }
@@ -22,7 +24,8 @@ public class DataDialogueFILE
 [Serializable]
 public class DataDialogueReuse
 {
-    public string Name;
+	public Sprite Avatar;
+	public string Name;
     public string[] Sentences;
 }
 
